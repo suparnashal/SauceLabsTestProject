@@ -16,8 +16,8 @@ namespace SauceLabsTestProject
         public static IWebDriver webDriver;
         public void SetupSauceLabsDriver(TestContext context)
         {
-            String username = "suparnashaligram";
-            String accesskey = "1112ab26-dcb9-4b26-859a-e3114d8b5103";
+            String username = "";
+            String accesskey = "";
             String sauceurl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
             string saucelabsTunnelID = "bst-tunnel";           
 
