@@ -16,8 +16,8 @@ namespace SauceLabsTestProject
         public static IWebDriver webDriver;
         public void SetupSauceLabsDriver(TestContext context)
         {
-            String username = "";
-            String accesskey = "";
+            String username = "suparnashaligram";
+            String accesskey = "1112ab26-dcb9-4b26-859a-e3114d8b5103";
             String sauceurl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
             string saucelabsTunnelID = "bst-tunnel";           
 
@@ -37,9 +37,15 @@ namespace SauceLabsTestProject
 
             // Device configurations
             options.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPad Pro (10.5 inch) Simulator");
-            options.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "14.3");
+            options.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "14.5");
             options.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
+            options.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.21.0");
             options.AddAdditionalCapability(MobileCapabilityType.NewCommandTimeout, 3600);
+            options.AddAdditionalCapability("safariInitialUrl", "https://www.google.com/");
+            options.AddAdditionalCapability("nativeWebTap", "true");
+            options.AddAdditionalCapability("enableAsyncExecuteFromHttps", "true");
+            options.AddAdditionalCapability("webviewConnectRetries", "12");
+            options.AddAdditionalCapability("idleTimeout", "360");
 
             // Mobile browser
             options.AddAdditionalCapability(MobileCapabilityType.BrowserName, "Safari");
