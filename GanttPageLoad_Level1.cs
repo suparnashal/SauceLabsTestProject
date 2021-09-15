@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace SauceLabsTestProject
 {
-    public class SimpleGanttPageLoad
+    public class GanttPageLoad_Level1
     {
         public IWebDriver driver; 
 
@@ -25,7 +25,7 @@ namespace SauceLabsTestProject
 
         private bool IsPageLoaded()
         {
-            Thread.Sleep(TimeSpan.FromSeconds(70));
+            
             if (driver.FindElement(By.CssSelector("div.e-custom-event-marker")).Displayed == true)
                 return true;
             else

@@ -41,10 +41,7 @@ namespace SauceLabsTestProject
             options.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
             options.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.21.0");
             options.AddAdditionalCapability(MobileCapabilityType.NewCommandTimeout, 3600);
-            options.AddAdditionalCapability("safariInitialUrl", "https://www.google.com/");
-            options.AddAdditionalCapability("nativeWebTap", "true");
-            options.AddAdditionalCapability("enableAsyncExecuteFromHttps", "true");
-            options.AddAdditionalCapability("webviewConnectRetries", "12");
+            options.AddAdditionalCapability("safariInitialUrl", "https://mc-adsqaweb01.bstsoftware.net:444/");         
             options.AddAdditionalCapability("idleTimeout", "360");
 
             // Mobile browser
