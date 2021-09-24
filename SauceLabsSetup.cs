@@ -21,7 +21,7 @@ namespace SauceLabsTestProject
             String sauceurl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
             string saucelabsTunnelID = "bst-tunnel";           
 
-            webDriver = new IOSDriver<IWebElement>(new Uri(sauceurl), GetAppiumOptions(username, accesskey, saucelabsTunnelID,context),TimeSpan.FromSeconds(200));            
+            webDriver = new IOSDriver<IWebElement>(new Uri(sauceurl), GetAppiumOptions(username, accesskey, saucelabsTunnelID,context),TimeSpan.FromSeconds(400));            
         }
 
         public AppiumOptions GetAppiumOptions(string username,string accessKey,string tunnel,TestContext context)

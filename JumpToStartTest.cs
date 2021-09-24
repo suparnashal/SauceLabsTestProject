@@ -55,19 +55,36 @@ namespace SauceLabsTestProject
 
             actions.MoveToElement(scrollContainer).Perform();
             Thread.Sleep(5000);
-            actions.MoveToElement(scrollContainer,10,10).Perform();
+            actions.MoveToElement(scrollContainer,100,10).Perform();
             Thread.Sleep(5000);            
 
-            IWebElement leftLabelContainer = driver.FindElement(By.XPath("(//*[@class='e-left-label-container'])[2]"));
+            IWebElement leftLabelContainer = driver.FindElement(By.XPath("(//*[@class=\"e-left-label-container\"])[2]/.."));
             leftLabelContainer.Click();   
 
             Thread.Sleep(5000);
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click()", leftLabelContainer);
             Thread.Sleep(5000);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].focus()", leftLabelContainer);
+
+            //((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click()", leftLabelContainer);
+            //((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click()", leftLabelContainer);
+            //((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click()", leftLabelContainer);
+            
+
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].dispatchEvent(new MouseEvent(\"click\", {bubbles: true, cancelable: true, view: window  }) )", leftLabelContainer);
+            // ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].dispatchEvent(new Event('touchstart', true, true));", leftLabelContainer);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].style.opacity = '1.0';", leftLabelContainer);
 
             IWebElement jumpToTask = driver.FindElement(By.XPath("//*[@data-automation-id='gantt__totask']"));
-            Console.WriteLine(jumpToTask.Displayed);
+            Console.WriteLine("Jump to task before removing u-hide: " + jumpToTask.Displayed);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].style.opacity = '1.0';", jumpToTask);
+
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].classList.remove(\"u-hide\");", jumpToTask);
+           // ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].style.position=\"absolute\";arguments[0].style.left=10;arguments[0].style.top=50;", jumpToTask);
+
+            Console.WriteLine(jumpToTask.Displayed + "  " + jumpToTask.Location.X + "," + jumpToTask.Location.Y);
+
+            actions.MoveToElement(scrollContainer, 0, 10).Perform();
 
             driver.Close();
             driver.Quit();
